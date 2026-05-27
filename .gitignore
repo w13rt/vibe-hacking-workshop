@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Secrets / creds
+.env
+.env.*
+*.ovpn
+*.key
+*.pem
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Agent working files (participants may produce these inside the repo)
+notes.md
+findings.md
+pocs/
+scratch/
+
+# Python (in case anyone runs upstream Agent Smith tooling from inside the repo)
+__pycache__/
+*.pyc
+.venv/
+venv/
