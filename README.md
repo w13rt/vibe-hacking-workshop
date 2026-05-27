@@ -37,25 +37,13 @@ Hard constraint: **fully local must work**. Not every path supports it.
 |---|---|---|
 | Raw agent | yes | yes |
 | Build your own | yes | yes |
-| Agent Smith | yes | no (needs Claude Code / Desktop) |
+| Agent Smith | yes | technically yes via OpenCode, but needs a high-tier local model (70B+) |
 | Skill fork | yes | no (needs Claude Code) |
 
 If you have no AI subscription and a 16 GB laptop, you are constrained
 to **Raw agent** or **Build your own**, both running Aider+Ollama.
 See [`SETUP.md`](SETUP.md) for the local-model picks.
 
-## Workshop shape
-
-1. Intro and framing (8 min)
-2. Room calibration (8 min)
-3. Why now (15 min)
-4. What vibe hacking actually means (12 min)
-5. Under the hood (10 min)
-6. The practical workflow (18 min)
-7. Choose your path (10 min)
-8. Hands-on setup (25 min) — this repo's [`SETUP.md`](SETUP.md)
-9. Lab phase (45 min) — this repo's [`LABS.md`](LABS.md)
-10. Review and discussion (25 min)
 
 ## Before the day
 

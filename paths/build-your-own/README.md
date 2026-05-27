@@ -1,8 +1,8 @@
 # Path: Build your own
 
-Project `CLAUDE.md` (or `AGENT.md`) plus your own skills. You encode
-your methodology into files the agent loads, so the same scaffold
-works across engagements.
+Project `CLAUDE.md` (or `AGENT.md`) that you author yourself by having
+the agent interview you. You encode your methodology into a file the
+agent loads, so the same scaffold works across engagements.
 
 **Why pick this:** you already have a methodology — a tool you always
 reach for, a workflow that works, a writeup format — and you want the
@@ -22,10 +22,10 @@ yourself.
 ## Cost expectation
 
 Same as Raw agent. Subscription cost is driven by tokens, not by which
-path you pick. The skills you write **save** tokens (the agent reaches
-for them only when relevant) compared to a giant prompt.
+path you pick. A focused `CLAUDE.md` **saves** tokens compared to
+re-prompting context every run.
 
-## The building blocks
+## The building block
 
 ### `CLAUDE.md` — persistent project context
 
@@ -35,12 +35,41 @@ or both — Claude Code loads them in order).
 
 Typical contents:
 
-- Tooling — what tools are installed, which versions
+- Personality — terse, evidence-driven, no flattery
 - Work style — how you want the agent to keep notes, when to ask
 - Environment — VM details, network constraints, paths
-- Personality — terse, evidence-driven, no flattery
+- Tooling — some might need mentioning, special non-standard Kali tools
 
-A minimal starter is in [`starter-CLAUDE.md`](starter-CLAUDE.md). Fork it.
+
+You author this file by running the prompts in
+[`prompts.md`](prompts.md) — the agent interviews you, drafts a
+`CLAUDE.md`, then critiques and trims its own draft. Do not paste a
+generic template; what survives an engagement unchanged is yours.
+
+## Setup
+
+```bash
+mkdir -p ~/H4CKINGB0T
+cd ~/H4CKINGB0T
+# CLAUDE.md will live here. Start your agent in this directory,
+# then open paths/build-your-own/prompts.md and paste the first prompt.
+```
+
+## Invocation
+
+Once `CLAUDE.md` carries identity, state model, and tool philosophy, the
+first prompt of an engagement collapses to one line:
+
+```text
+Target: <target-url-or-ip>. Get a shell and capture proof.
+```
+
+Lab targets and reachability checks: [`../../LABS.md`](../../LABS.md).
+
+## Optional ideas
+
+Once your `CLAUDE.md` works, these are common next steps. None are
+required for the workshop.
 
 ### Skills — methodology as code
 
@@ -55,7 +84,8 @@ Two things make a skill useful:
 2. The **content** is methodology, not theory. Tools, flags you prefer,
    exact commands, gotchas.
 
-If you want a worked example, look at the upstream Skill fork
+Prompt 5 in [`prompts.md`](prompts.md) bootstraps a first skill. For a
+worked library, look at the upstream Skill fork
 (`https://github.com/w13rt/skills`) — it is exactly this pattern.
 
 ### Cross-engagement lessons store
@@ -66,28 +96,14 @@ target class (HTB Linux easy, internal AD, web monolith, mobile, …)
 rather than by client name. Helps the next engagement; helps you train
 your own skills.
 
-## Setup
+### Interactive shells via tmux
 
-```bash
-mkdir -p ~/engagements/workshop
-cd ~/engagements/workshop
-cp <path-to-this-repo>/paths/build-your-own/starter-CLAUDE.md ./CLAUDE.md
-$EDITOR CLAUDE.md       # adjust identity, environment, work style
-mkdir skills            # optional — drop your own per-skill files here
-```
-
-Then start your agent from this directory.
-
-## Invocation
-
-Because the `CLAUDE.md` already carries identity, state model, and tool
-philosophy, the first prompt collapses to one line:
-
-```text
-Target: <target-url-or-ip>. Get a shell and capture proof.
-```
-
-Lab targets and reachability checks: [`../../LABS.md`](../../LABS.md).
+Agents drive non-interactive shells well, but choke on `msfconsole`,
+`gdb`, interactive SSH, anything with a TUI. The workaround: have the
+agent drive a long-lived tmux session — `tmux send-keys` to type,
+`tmux capture-pane` to read. Encode the pattern as a skill so the agent
+reaches for it automatically. The upstream Skill fork has a `tmux`
+skill as a worked example.
 
 ## Workshop-day discipline
 

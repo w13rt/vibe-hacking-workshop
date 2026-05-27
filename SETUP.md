@@ -24,6 +24,13 @@ the morning of.
   This workshop does not walk you through HTB account or VPN setup —
   bring an already-active session if you want to play.
 
+> **Agent Smith path only:** the install is heavy — Poetry deps, a
+> submodule-bearing clone, and multi-GB Docker images for the Kali-MCP
+> and Metasploit scanner containers. **Run it in advance.** Workshop
+> wifi might not finish the download in time. See
+> [`paths/agent-smith/README.md`](paths/agent-smith/README.md) for the
+> exact steps.
+
 ## 2. Cloud path (recommended)
 
 Pick one. Any of these works for at least the warm-up.
@@ -145,6 +152,8 @@ Application", **you are ready for the workshop**.
 - [ ] Agentic CLI installed and authenticated (Claude Code / Codex /
       Aider / Cline)
 - [ ] End-to-end smoke test from §4 passes
+- [ ] (Agent Smith path only) Upstream cloned, installer run, client
+      restarted, optional Kali-MCP + Metasploit images prebuilt
 - [ ] (Optional) Active HTB session if you want to do the main lab phase
 
 If every box is ticked, you are ready. See you on the day.
