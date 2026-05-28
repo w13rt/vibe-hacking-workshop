@@ -15,6 +15,8 @@ material.
 - [`LABS.md`](LABS.md) — the warm-up target (DVWA or Juice Shop) and the
   main HTB phase
 - [`paths/`](paths/) — one folder per path, with setup and invocation
+- [`REFERENCES.md`](REFERENCES.md) — external links: agentic CLIs,
+  frameworks, vulnerable targets, and methodology reading
 
 ## The four paths
 
